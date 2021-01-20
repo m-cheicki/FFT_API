@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import numpy as np
 import numpy.fft as FFT
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='template')
 
 
 @app.route('/', methods=['GET'])
