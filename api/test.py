@@ -37,10 +37,7 @@ json_data = {
 
 json_data = json.dumps(json_data)
 
-data_url = "http://127.0.0.1:5000/api/"
+data_url = "http://api.mcheicki.com/python/apis/fft/"
 
 r = requests.post(data_url, data=json_data, headers=headers)
 print(r.text)
-
-# r2 = requests.get(data_url)
-# print(r2.text)
