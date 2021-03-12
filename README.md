@@ -4,7 +4,7 @@ A python API for Fast Fourier Transformation (FFT)
 
 ## How to use it
 
-For the purpose of the demonstration, I have generated a signal by doing so :
+For the purpose of the demonstration, I have generated a signal like that:
 
 ```
 SAMPLE_RATE = 1000
@@ -25,12 +25,13 @@ signal3 = signal3 * 1.3
 
 signal = signal1 + signal2 + signal3
 signal = signal.tolist()
+
 ```
 
-Now that we have a signal, lets find its frequencies using the API.
+Now that we have a signal, let's find its frequencies using the API. <br/>
 You have to specify the `SAMPLE_RATE` and the `DURATION`, in seconds, of your sound, in addition to the `signal`. Here is the data we are going to give to our API :
 
-````
+```
 SAMPLE_RATE = 1000
 DURATION = 1
 
@@ -62,7 +63,7 @@ print(r.text)
 
 ## Full example
 
-````
+```
 
 import requests
 import json
@@ -104,7 +105,5 @@ data_url = "http://api.mcheicki.com/python/apis/fft/"
 
 r = requests.post(data_url, data=json_data, headers=headers)
 print(r.text)
-
-```
 
 ```
