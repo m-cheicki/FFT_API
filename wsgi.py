@@ -2,7 +2,7 @@ import os
 import sys
 import numpy as np
 import numpy.fft as FFT
-import json 
+import json
 
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 def application(environ, start_response):
     start_response('200 OK', [('Content-Type', 'application/json')])
 
-    if environ['PATH_INFO'] == '/python/apis/fft/' or environ['PATH_INFO'] == '/python/apis/fft': 
+    if environ['PATH_INFO'] == '/':
 
         if environ['REQUEST_METHOD'] == 'GET':
             data_sent = 'To make a POST request, you have to pass a JSON like : json_data = {"Signal": signal,"Sample_rate": SAMPLE_RATE,"Duration": DURATION} where signal is an array of float number, the sample_rate is the sample rate (int), and the duration is the duration of the sound in seconds.'
@@ -40,13 +40,11 @@ def application(environ, start_response):
             print("FFT : " + str(len(fft)))
 
             freqs = frequencies[mask]
-            
-
             data_sent = json.dumps({"frequencies": freqs.tolist()})
 
-        else: 
-            data_sent = {'method' : 'Other'}
-    else: 
+        else:
+            data_sent = {'method': 'Other'}
+    else:
         data_sent = environ['PATH_INFO']
 
     return [str(data_sent).encode()]
